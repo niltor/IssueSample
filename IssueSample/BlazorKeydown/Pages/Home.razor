@@ -1,0 +1,43 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Keydown Issue Sample</h1>
+
+<input type="text" @bind="SearchKey" placeholder="SearchKey" @onkeydown="KeyDown">
+
+
+<div>
+    @foreach (var item in filterData)
+    {
+        <div>@item</div>
+    }
+</div>
+
+@code {
+    private string SearchKey { get; set; } = string.Empty;
+
+    private List<string> Data = ["Keydown", "Issue", "Sample"];
+    private List<string> filterData = [];
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+    private void KeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+
+        {
+            if (string.IsNullOrEmpty(SearchKey))
+            {
+                filterData = Data;
+            }
+            else
+            {
+                filterData = Data.Where(x => x.ToLower().Contains(SearchKey.ToLower())).ToList();
+            }
+            // StateHasChanged();
+        }
+    }
+}
