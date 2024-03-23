@@ -4,7 +4,9 @@
 
 <h1>Keydown Issue Sample</h1>
 
-<input type="text" @bind="SearchKey" placeholder="SearchKey" @onkeydown="KeyDown">
+<input type="text" @bind="SearchKey" placeholder="SearchKey" @onkeydown="KeyDown" >
+
+<button @onclick="Search">Search</button>
 
 
 <div>
@@ -22,12 +24,24 @@
 
     protected override void OnInitialized()
     {
-        base.OnInitialized();
+        filterData = Data;
     }
+
+    private void Search()
+    {
+        if (string.IsNullOrEmpty(SearchKey))
+        {
+            filterData = Data;
+        }
+        else
+        {
+            filterData = Data.Where(x => x.ToLower().Contains(SearchKey.ToLower())).ToList();
+        }
+    }
+
     private void KeyDown(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
-
         {
             if (string.IsNullOrEmpty(SearchKey))
             {
