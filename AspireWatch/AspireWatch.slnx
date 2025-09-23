@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="AspireWatch.ApiService/AspireWatch.ApiService.csproj" />
+  <Project Path="AspireWatch.AppHost/AspireWatch.AppHost.csproj" />
+  <Project Path="AspireWatch.ServiceDefaults/AspireWatch.ServiceDefaults.csproj" />
+  <Project Path="AspireWatch.Web/AspireWatch.Web.csproj" />
+  <Project Path="MigrationService/MigrationService.csproj" />
+</Solution>
