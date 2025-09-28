@@ -1,0 +1,6 @@
+@OpenApiIssue_HostAddress = http://localhost:5029
+
+GET {{OpenApiIssue_HostAddress}}/openapi/v1.json
+Accept: application/json
+
+###
