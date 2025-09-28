@@ -40,15 +40,8 @@ public class User
     //public ICollection<UserTicket> UserTickets { get; set; } = [];
 }
 
-public class Order
-{
-    public User User { get; set; } = default!;
-}
-
-public class Product
-{
-    public User User { get; set; } = default!;
-}
+public class Order { public User? User { get; set; } }
+public class Product { public User? User { get; set; } }
 public class Course { public User? User { get; set; } }
 public class Car { public User? User { get; set; } }
 public class Hourse { public User? User { get; set; } }
